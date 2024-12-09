@@ -41,56 +41,56 @@ char *USERNAME = "yourphilipshueapikey";
 // Set type of bulb
 
 // I1
-bulbType[0] = TYPE_SINGLE_TUNABLE;
-bulbId[0] = 14;
+bulbType[0] = TYPE_NONE;
+bulbId[0] = 1;
 
 // I2
-bulbType[1] = TYPE_SINGLE_TUNABLE;
-bulbId[1] = 14;
+bulbType[1] = TYPE_NONE;
+bulbId[1] = 1;
 
 // I3
-bulbType[2] = TYPE_SINGLE_TUNABLE;
-bulbId[2] = 14;
+bulbType[2] = TYPE_NONE;
+bulbId[2] = 1;
 
 // I4
-bulbType[3] = TYPE_SINGLE_TUNABLE;
-bulbId[3] = 14;
+bulbType[3] = TYPE_NONE;
+bulbId[3] = 1;
 
 // I5
-bulbType[4] = TYPE_SINGLE_TUNABLE;
-bulbId[4] = 14;
+bulbType[4] = TYPE_NONE;
+bulbId[4] = 1;
 
 // I6
-bulbType[5] = TYPE_SINGLE_TUNABLE;
-bulbId[5] = 14;
+bulbType[5] = TYPE_NONE;
+bulbId[5] = 1;
 
 // I7
-bulbType[6] = TYPE_SINGLE_TUNABLE;
-bulbId[6] = 14;
+bulbType[6] = TYPE_NONE;
+bulbId[6] = 1;
 
 // I8
-bulbType[7] = TYPE_SINGLE_TUNABLE;
-bulbId[7] = 14;
+bulbType[7] = TYPE_NONE;
+bulbId[7] = 1;
 
 // I9
-bulbType[8] = TYPE_SINGLE_TUNABLE;
-bulbId[8] = 14;
+bulbType[8] = TYPE_NONE;
+bulbId[8] = 1;
 
 // I10
-bulbType[9] = TYPE_SINGLE_TUNABLE;
-bulbId[9] = 14;
+bulbType[9] = TYPE_NONE;
+bulbId[9] = 1;
 
 // I11
-bulbType[10] = TYPE_SINGLE_TUNABLE;
-bulbId[10] = 14;
+bulbType[10] = TYPE_NONE;
+bulbId[10] = 1;
 
 // I12
-bulbType[11] = TYPE_SINGLE_TUNABLE;
-bulbId[11] = 14;
+bulbType[11] = TYPE_NONE;
+bulbId[11] = 1;
 
 // I13
-bulbType[12] = TYPE_SINGLE_TUNABLE;
-bulbId[12] = 14;
+bulbType[12] = TYPE_NONE;
+bulbId[12] = 1;
 
 // ***************************************************
 //  Configure your system here                     END
@@ -98,22 +98,13 @@ bulbId[12] = 14;
 
 int IsGroup(int type)
 {
-    switch (type)
-    {
-    case TYPE_SINGLE_RGB:
-    case TYPE_SINGLE_TUNABLE:
-    case TYPE_SINGLE_DIM:
-    case TYPE_SINGLE_ONOFF:
-        return 0;
-        break;
-
-    case TYPE_GROUP_RGB:
-    case TYPE_GROUP_TUNABLE:
-    case TYPE_GROUP_DIM:
-    case TYPE_GROUP_ONOFF:
+    if (type == TYPE_GROUP_RGB ||
+        type == TYPE_GROUP_TUNABLE ||
+        type == TYPE_GROUP_DIM ||
+        type == TYPE_GROUP_ONOFF)
         return 1;
-        break;
-    }
+
+    return 0;
 }
 
 void SendCommand(int isGroup, int id, char *command)
